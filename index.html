@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Flask App</title>
+  <style>
+    /* General styles */
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f8ff;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; /* Ensure the body takes up at least the full height of the viewport */
+    }
+    /* Header styles */
+    header {
+      background-color: #3498db; /* Blue header background */
+      color: #fff; /* White text color */
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between; /* Space between logo and navigation */
+      align-items: center; /* Vertically center header content */
+    }
+
+    .navbar {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex; /* Align navigation items horizontally */
+    }
+
+    .navbar li {
+      margin-left: 1.5rem; /* Add margin between items */
+    }
+
+    .navbar a {
+      color: inherit;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.2s ease-in-out; /* Add hover effect for color */
+      border-bottom: 2px solid transparent; /* Add transparent underline */
+    }
+
+    .navbar a:hover {
+      color: #2980b9; /* Darken link color on hover */
+      border-bottom: 2px solid #2980b9; /* Add underline on hover */
+    }
+
+    /* Main content styles */
+    main {
+      flex: 1; /* Take up remaining vertical space */
+      padding: 2rem;
+      display: flex; /* Align items horizontally */
+      justify-content: center; /* Center content horizontally */
+      align-items: center; /* Center content vertically */
+    }
+
+    .container {
+      max-width: 800px;
+      text-align: center;
+      background-color: #fff; /* White background for content area */
+      border-radius: 5px; /* Add subtle rounded corners */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a slight shadow for depth */
+      padding: 2rem; /* Add padding inside the container */
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Center align the form content */
+      width: 100%; /* Make the form take full width of its container */
+    }
+
+    input[type="file"] {
+      padding: 0.5rem 1rem;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      margin-bottom: 1rem; /* Add some space below the file input */
+      width: 100%; /* Make the input take full width of the form */
+      box-sizing: border-box; /* Include padding and border in the element's total width */
+    }
+
+    button[type="submit"] {
+      background-color: #3498db;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+      width: 100%; /* Make the button take full width of the form */
+      box-sizing: border-box; /* Include padding and border in the element's total width */
+    }
+
+    button[type="submit"]:hover {
+      background-color: #2980b9;
+    }
+
+    /* Footer styles */
+    footer {
+      background-color: #f0f8ff;
+      color: #000000;
+      padding: 1rem 2rem;
+      text-align: center;
+      margin-top: auto; /* Push the footer to the bottom */
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <h1>SentimentScope</h1>
+  </div>
+  <nav class="navbar">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="container">
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+      <input type="file" name="file" accept=".csv">
+      <button type="submit">Upload CSV File</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2024 SentimentScope. All rights reserved.</p>
+</footer>
+</body>
+</html>
